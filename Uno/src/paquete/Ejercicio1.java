@@ -5,7 +5,7 @@ public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		 
-		File fichero = new File("cine_granada");
+		File fichero = new File("C:\\Users\\AlumnoT\\Desktop\\acceso_a_datos\\Uno\\uno");
 		
 		fichero.mkdir();
 		
@@ -14,17 +14,24 @@ public class Ejercicio1 {
 		fichero.mkdir();
 		
 		for (String dia : Semana) {
-            File auxiliar = new File(dia); 
-            
+            File auxiliar = new File("C:\\Users\\AlumnoT\\Desktop\\acceso_a_datos\\Uno\\uno\\" + dia);
+
             auxiliar.mkdir();
             
+            
             File destino = new File(fichero, dia); 
-
-            if (auxiliar.renameTo(destino)) {
-                System.out.println("Directorio '" + dia + "' movido a 'cine_granada'.");
-            } else {
-                System.out.println("No se pudo mover el directorio '" + dia + "'.");
+            
+            
+            if(!destino.exists()) {
+            	destino.mkdir();
+            	System.out.println("La carpeta se ha creado ya que no existia");
             }
+            
+            if(!auxiliar.exists()) {
+            	auxiliar.mkdir();
+            	System.out.println("La carpeta se ha creado ya que no existia");
+            }
+            	auxiliar.renameTo(destino);
         }
     }
 }
