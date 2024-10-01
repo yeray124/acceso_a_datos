@@ -1,9 +1,10 @@
 package paquete;
 import java.io.File;
+import java.io.IOException;
 
 public class Ejercicio1 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		 
 		File fichero = new File("cine_granada");
 		fichero.mkdir();
@@ -29,7 +30,11 @@ public class Ejercicio1 {
             	System.out.println(destino.getPath());
             } else {
             	System.out.println("No se pudo mover el directorio" + dia + "a cine_granada");
-            }   
+            } 
+            
+            File sesionFile = new File(destino, "sesiones.txt");
+            sesionFile.createNewFile();
+            System.out.println("Archivo 'sesiones.txt' creado correctamente en: " + sesionFile.getAbsolutePath());
         }
     }
 }
