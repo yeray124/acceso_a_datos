@@ -1,13 +1,13 @@
 package paquete;
 import java.io.File;
 import java.io.FileOutputStream;
-
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Ejercicio1 {
 
 	public static void main(String[] args) throws IOException {
-		 
+
 		File fichero = new File("cine_granada");
 		fichero.mkdir();
 		String[] Semana = { "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado", "Domingo"};
@@ -46,6 +46,14 @@ public class Ejercicio1 {
             	out.close();
             	System.out.println("Contenido del archivo 'sesiones.txt' en el directorio 'Lunes':");
                 System.out.println(cadena);
+                
+            File martes = new File("C:\\Users\\AlumnoT\\Desktop\\acceso_a_datos\\Uno\\cine_granada\\Martes\\sesiones.txt");
+            String texto = ("Iron Man (2008): 17:00 - 19:06.");
+            FileWriter write = new FileWriter(martes);
+            write.close();
+            System.out.println("Contenido del archivo 'sesiones.txt' en el directorio 'Martes':");
+            System.out.println(texto);
+
         }
     }
 }	
