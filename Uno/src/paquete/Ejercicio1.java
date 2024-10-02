@@ -1,5 +1,7 @@
 package paquete;
 import java.io.File;
+import java.io.FileOutputStream;
+
 import java.io.IOException;
 
 public class Ejercicio1 {
@@ -35,6 +37,15 @@ public class Ejercicio1 {
             File sesionFile = new File(destino, "sesiones.txt");
             sesionFile.createNewFile();
             System.out.println("Archivo 'sesiones.txt' creado correctamente en: " + sesionFile.getAbsolutePath());
+            
+            File escribir = new File("C:\\Users\\AlumnoT\\Desktop\\acceso_a_datos\\Uno\\cine_granada\\Lunes\\sesiones.txt");
+            String cadena = ("Spiderman (2002): 18:00 - 20:07");
+            FileOutputStream out = new FileOutputStream(escribir);
+            byte [ ] arrayBytes = cadena.getBytes();
+            	out.write(arrayBytes);
+            	out.close();
+            	System.out.println("Contenido del archivo 'sesiones.txt' en el directorio 'Lunes':");
+                System.out.println(cadena);
         }
     }
-}
+}	
