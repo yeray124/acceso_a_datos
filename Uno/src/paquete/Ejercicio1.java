@@ -50,6 +50,7 @@ public class Ejercicio1 {
             File martes = new File("C:\\Users\\AlumnoT\\Desktop\\acceso_a_datos\\Uno\\cine_granada\\Martes\\sesiones.txt");
             String texto = ("Iron Man (2008): 17:00 - 19:06.");
             FileWriter write = new FileWriter(martes);
+            write.write(texto);
             write.close();
             System.out.println("Contenido del archivo 'sesiones.txt' en el directorio 'Martes':");
             System.out.println(texto);
