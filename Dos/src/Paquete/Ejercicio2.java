@@ -8,9 +8,7 @@ import java.io.StreamTokenizer;
 public class Ejercicio2 {
 
 	public static void main(String[] args)  throws FileNotFoundException {
-		StreamTokenizer recibir = new StreamTokenizer(
-				 new FileInputStream("tema2_practica.txt"));
-		
+		StreamTokenizer recibir = new StreamTokenizer(new FileInputStream("tema2_practica.txt"));
 		try {
 			while(recibir.nextToken() !=recibir.TT_EOF) {
 				if (recibir.ttype == StreamTokenizer.TT_NUMBER){
@@ -18,8 +16,6 @@ public class Ejercicio2 {
 					System.out.println((int)recibir.nval);
 				}
 			}
-			
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
