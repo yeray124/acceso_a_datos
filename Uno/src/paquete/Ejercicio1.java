@@ -33,7 +33,6 @@ public class Ejercicio1 {
             } else {
             	System.out.println("No se pudo mover el directorio" + dia + "a cine_granada");
             } 
-            
             File sesionFile = new File(destino, "sesiones.txt");
             sesionFile.createNewFile();
             System.out.println("Archivo 'sesiones.txt' creado correctamente en: " + sesionFile.getAbsolutePath());
@@ -54,7 +53,6 @@ public class Ejercicio1 {
             write.close();
             System.out.println("Contenido del archivo 'sesiones.txt' en el directorio 'Martes':");
             System.out.println(texto);
-
         }
     }
 }	
