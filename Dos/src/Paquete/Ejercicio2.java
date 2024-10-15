@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.StreamTokenizer;
 
 public class Ejercicio2 {
-
 	public static void main(String[] args)  throws FileNotFoundException {
 		StreamTokenizer recibir = new StreamTokenizer(new FileInputStream("tema2_practica.txt"));
 		 boolean empieza = false;
@@ -16,7 +15,6 @@ public class Ejercicio2 {
 				if (recibir.ttype == '>'){
 					empieza = true;
 				} 
-				
 				if(empieza) {
 					if (recibir.ttype == recibir.TT_WORD) {
 						System.out.print("Contacto: ");
