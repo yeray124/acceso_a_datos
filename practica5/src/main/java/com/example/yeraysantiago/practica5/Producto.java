@@ -99,6 +99,7 @@ public class Producto extends JDialog {
 	public void addUserButtonActionPerformed(java.awt.event.ActionEvent evento) {
 		String username = TextoUno.getText();
 		Double precio = Double.valueOf(TextoDos.getText());
+		
 		if(!username.equals("")){
 			String URL_CONEXION = "jdbc:h2:file:~/test", usuario = "sa", password = "password";
 			try {

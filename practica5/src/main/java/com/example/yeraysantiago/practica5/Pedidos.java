@@ -100,7 +100,7 @@ public class Pedidos extends JDialog {
                 try {
                     cantidad = Integer.valueOf(CantidadTxT.getText());
                 } catch (NumberFormatException ex) {
-                    System.out.println("Cantidad no válida.");
+                    System.out.println("Cantidad no valida.");
                     return; 
                 }
                 
@@ -117,7 +117,7 @@ public class Pedidos extends JDialog {
                     userId = matcher.group(1);
                     System.out.println("userId: " + userId);
                 } else {
-                    System.out.println("No ID encontrado para el usuario.");
+                    System.out.println("No ID encontrado para el usuario");
                     return;
                 }
                 
