@@ -33,10 +33,8 @@ public class Pedidos extends JDialog {
     private JTextField CantidadTxT;
     private Interfaz parent;
 
-
-
     public Pedidos(Interfaz parent) {
-    	this.parent = parent;
+    	 this.parent = parent;
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
@@ -86,21 +84,19 @@ public class Pedidos extends JDialog {
         comboBoxProducto = new JComboBox<>();
         comboBoxProducto.setBounds(10, 112, 414, 23);
         contentPane.add(comboBoxProducto);
-        
 
         actualizarComboBox();
-
 
         Agregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String productoSeleccionado = (String) comboBoxProducto.getSelectedItem();
                 String usuarioSeleccionado = (String) comboBoxUsuario.getSelectedItem();
                 Integer cantidad;
-                
+
                 try {
                     cantidad = Integer.valueOf(CantidadTxT.getText());
                 } catch (NumberFormatException ex) {
-                    System.out.println("Cantidad no valida.");
+                    System.out.println("Cantidad no válida.");
                     return; 
                 }
                 
@@ -117,11 +113,11 @@ public class Pedidos extends JDialog {
                     userId = matcher.group(1);
                     System.out.println("userId: " + userId);
                 } else {
-                    System.out.println("No ID encontrado para el usuario");
+                    System.out.println("No ID encontrado para el usuario.");
                     return;
                 }
                 
-                System.out.println("Producto seleccionado: " + productoSeleccionado); 
+                System.out.println("Producto seleccionado: " + productoSeleccionado);
 
                 Pattern pattern2 = Pattern.compile("id:\\s*(\\d+)");
                 Matcher matcher2 = pattern2.matcher(productoSeleccionado);
@@ -133,7 +129,7 @@ public class Pedidos extends JDialog {
                     return; 
                 }
 
-                if(!userId.equals("") && !productId.equals("") && cantidad > 0) {
+                if(!userId.isEmpty() && !productId.isEmpty() && cantidad > 0) {
                     String URL_CONEXION = "jdbc:h2:file:~/test";
                     String username = "sa";
                     String password = "password";
@@ -148,7 +144,7 @@ public class Pedidos extends JDialog {
                         
                         int filasAfectadas = pstmtAgregar.executeUpdate();
                         if (filasAfectadas > 0) {
-                            System.out.println("Se insertó correctamente");
+                            System.out.println("Se inserto correctamente");
                             actualizarComboBox();
                         } else {
                             System.out.println("No se ha podido insertar");
@@ -177,7 +173,7 @@ public class Pedidos extends JDialog {
             comboBoxProducto.addItem(datoProducto);
         }
     }
-    
+
     private ArrayList<String> addChoicesToUserDropDown(){
         String URL_CONEXION = "jdbc:h2:file:~/test";
         String usuario = "sa";
@@ -203,6 +199,7 @@ public class Pedidos extends JDialog {
         }
         return choices;
     }
+
     private ArrayList<String> addChoicesToProductDropDown() {
         String URL_CONEXION = "jdbc:h2:file:~/test";
         String usuario = "sa"; 
@@ -221,6 +218,7 @@ public class Pedidos extends JDialog {
                 String nombre = rs.getString("nombre");
                 choices.add("id: " + id + " nombre: " + nombre); 
             }
+            
             rs.close();
             statement.close();
         } catch (SQLException ex) {

@@ -90,6 +90,7 @@ public class Usuario extends JDialog  {
         });
 		
 	}
+
 	
 	public void addUserButtonActionPerformed(java.awt.event.ActionEvent evento) {
 		String username = Textoo.getText().trim(); 

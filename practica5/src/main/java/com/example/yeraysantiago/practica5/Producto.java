@@ -38,7 +38,6 @@ public class Producto extends JDialog {
 			}
 		});
 	}
-	
 	public Producto(Interfaz parent) {
 		super(parent, "Añadir Producto", true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -56,7 +55,6 @@ public class Producto extends JDialog {
 		primerLabel.setBounds(10, 11, 414, 44);
 		primerLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		primerLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-		
 		contentPane.add(primerLabel);
 		
 		JButton Boton2 = new JButton("Añadir");
@@ -89,7 +87,6 @@ public class Producto extends JDialog {
                 addUserButtonActionPerformed(evento);
             }
         });
-
         Boton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evento) {
                 dispose(); 
@@ -122,6 +119,4 @@ public class Producto extends JDialog {
 			System.out.println("El campo de nombre de usuario esta vacio.");
 		}
 	}
-
-	
 }

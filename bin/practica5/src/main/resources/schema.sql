@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS usuarios (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(90) NOT NULL UNIQUE
+);
+
+
+CREATE TABLE IF NOT EXISTS productos (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(90) NOT NULL UNIQUE,
+    Precio DECIMAL(10,2) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS pedidos (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(ID),
+    FOREIGN KEY (id_producto) REFERENCES productos(ID)
+);
