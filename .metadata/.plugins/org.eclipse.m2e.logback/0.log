@@ -666,3 +666,11 @@
 2024-11-06 20:48:28,479 [Worker-48: Launching practica7_8] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\AlumnoT\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
 2024-11-06 20:48:28,480 [Worker-48: Launching practica7_8] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\AlumnoT\Desktop\acceso_a_datos\practica7_8":
 2024-11-06 20:48:28,480 [Worker-48: Launching practica7_8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2024-11-06 21:05:43,899 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2024-11-06 21:05:43,900 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2024-11-06 21:05:43,901 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2024-11-06 21:05:43,901 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2024-11-06 21:05:43,902 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2024-11-06 21:05:43,902 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2024-11-06 21:05:43,902 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2024-11-06 21:05:43,902 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
