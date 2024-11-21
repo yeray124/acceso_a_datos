@@ -38,7 +38,6 @@ public class VideojuegoService {
 		}		
 	}
 	
-	
 	public void BorrarVideojuego(Videojuego videojuego) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
