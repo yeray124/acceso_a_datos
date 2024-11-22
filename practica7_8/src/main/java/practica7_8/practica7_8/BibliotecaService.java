@@ -42,6 +42,8 @@ public class BibliotecaService {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		
+		biblioteca = session.get(BibliotecaJuegos.class, biblioteca.getId());
+		
 		try {
 			transaction = session.beginTransaction();
 			session.remove(biblioteca);
@@ -57,27 +59,31 @@ public class BibliotecaService {
 	}
 	
 	public void ActualizarBiblioteca(Long id, String Creador, int Ventas, int Duracion) {
-		Session session = sessionFactory.openSession();
-		BibliotecaJuegos biblioteca = session.get(BibliotecaJuegos.class, id);
-		biblioteca.setCreador(Creador);
-		biblioteca.setVentas(Ventas);
-		biblioteca.setDuracion(Duracion);
-		
-		
-		Transaction transaction = null;
-		
-		try {
-			transaction = session.beginTransaction();
-			session.merge(biblioteca);
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null){
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}		
+	    Session session = sessionFactory.openSession();
+	    Transaction transaction = null;
+
+	    try {
+	        BibliotecaJuegos biblioteca = session.get(BibliotecaJuegos.class, id);
+	        if (biblioteca != null) {
+	            biblioteca.setCreador(Creador);
+	            biblioteca.setVentas(Ventas);
+	            biblioteca.setDuracion(Duracion);
+	            transaction = session.beginTransaction();
+	            session.merge(biblioteca);
+	            transaction.commit();
+
+	            System.out.println("Se ha actualizado la biblioteca creada por: " + biblioteca.getCreador());
+	        } else {
+	            System.out.println("No se encontró la biblioteca con el ID proporcionado.");
+	        }
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace();
+	    } finally {
+	        session.close();
+	    }
 	}
 	
 	public BibliotecaJuegos ObtenerBiblioteca(Long id) {

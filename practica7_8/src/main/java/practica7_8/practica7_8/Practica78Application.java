@@ -54,29 +54,61 @@ public class Practica78Application {
 	        //obtener videojuego con edad menor a 12
 	        int edadMaxima = 12;
 	        System.out.println("Videojuego con edad menor a " + edadMaxima + ":");
-	        List<Videojuego> VideojuegoEdad = videojuego.ObtenerVideojuegoConEdadMenorA(edadMaxima);
-	        for (Videojuego vj : VideojuegoEdad) {
-	            System.out.println("Videojuego: " + vj.getNombre() + " | Edad: " + vj.getEdad());
-	        }
-
-
-	        // Insertamos 4 bibliotecas
 	        
-	    //    BibliotecaJuegos biblioteca1 = new BibliotecaJuegos();
-	    //    biblioteca1.setCreador("Yeray Santiago");
-	     //   biblioteca1.setVentas(1000);
-	    //    biblioteca1.setDuracion(100);
-	     //   biblioteca.InsertarBiblioteca(biblioteca1);
-	     //   System.out.println("Se ha insertado la biblioteca creada por: " + biblioteca1.getCreador());
+	        List<Videojuego> VideojuegoEdad = videojuego.ObtenerVideojuegoConEdadMenorA(edadMaxima);
 
-	     //   BibliotecaJuegos biblioteca2 = new BibliotecaJuegos();
-	     //   biblioteca2.setCreador("Paquillo");
-	     //   biblioteca2.setVentas(202);
-	     //   biblioteca2.setDuracion(532);
-	     //   biblioteca.InsertarBiblioteca(biblioteca2);
-	     //   System.out.println("Se ha insertado la biblioteca creada por: " + biblioteca2.getCreador());
+		     if (!VideojuegoEdad.isEmpty()) {
+		         
+		         for (Videojuego vj : VideojuegoEdad) {
+		             System.out.println("Videojuego: " + vj.getNombre() + " | Edad: " + vj.getEdad());
+		         }
+		     } else {
+		         
+		         System.out.println("No se encontraron videojuegos con edad menor a " + edadMaxima + ".");
+		     }
+		     
+	        // Insertamos 2 bibliotecas
+		    BibliotecaJuegos biblioteca1 = new BibliotecaJuegos();
+	        biblioteca1.setCreador("Pepe Santiago");
+	        biblioteca1.setVentas(1000);
+		    biblioteca1.setDuracion(100);
+	        biblioteca.InsertarBiblioteca(biblioteca1);
+	        System.out.println("Se ha insertado la biblioteca creada por: " + biblioteca1.getCreador());
 
+	        BibliotecaJuegos biblioteca2 = new BibliotecaJuegos();
+	        biblioteca2.setCreador("Paquillo");
+	        biblioteca2.setVentas(202);
+	        biblioteca2.setDuracion(532);
+	        biblioteca.InsertarBiblioteca(biblioteca2);
+	        System.out.println("Se ha insertado la biblioteca creada por: " + biblioteca2.getCreador());
+	        
+	        // Borrar la primera biblioteca
+	        biblioteca.BorrarBiblioteca(biblioteca1);
+	        System.out.println("Se ha borrado la biblioteca creada por: " + biblioteca1.getCreador());
+	        
+	        // Filtro aqui por ID
+	        BibliotecaJuegos bibliotecaObtenida = biblioteca.ObtenerBiblioteca(biblioteca1.getId());
+	        if (bibliotecaObtenida != null) {
+	            System.out.println("Biblioteca obtenida por ID: " + bibliotecaObtenida.getCreador());
+	        } else {
+	            System.out.println("No se encontro la biblioteca con el ID proporcionado.");
+	        }
+	        
+	        // Actualizar la primera biblioteca
+	        biblioteca.ActualizarBiblioteca(biblioteca1.getId(), "Yeray Santiago", 1500, 120);
+	        System.out.println("Se ha actualizado la biblioteca creada por: " + biblioteca1.getCreador());
 
+	        // Obtener bibliotecas con duración menor a 200
+	        int duracionMaxima = 200;
+	        List<BibliotecaJuegos> bibliotecasConDuracionMenor = biblioteca.ObtenerBibliotecaConEdadMenorA(duracionMaxima);
+	        System.out.println("Bibliotecas con duración menor a " + duracionMaxima + ":");
+	        if (!bibliotecasConDuracionMenor.isEmpty()) {
+	            for (BibliotecaJuegos biblio : bibliotecasConDuracionMenor) {
+	                System.out.println("Biblioteca: " + biblio.getCreador() + " | Duracion: " + biblio.getDuracion());
+	            }
+	        } else {
+	            System.out.println("No se encontraron bibliotecas con duracion menor a " + duracionMaxima);
+	        }
 	}
 
 }

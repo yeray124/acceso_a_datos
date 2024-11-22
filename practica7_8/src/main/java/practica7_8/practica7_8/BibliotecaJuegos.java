@@ -1,13 +1,12 @@
 package practica7_8.practica7_8;
 
-import java.util.ArrayList;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,16 +16,17 @@ public class BibliotecaJuegos {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany
-	@JoinColumn(name = "id_biblioteca", referencedColumnName = "id")
-	private ArrayList<Videojuego> Videojuegos;
+	@ManyToOne
+	@JoinColumn(name = "id_videojuego", referencedColumnName = "id")
 	
-	public ArrayList<Videojuego> getVideojuegos() {
-		return Videojuegos;
+	private  Videojuego videojuego;
+	
+	public Videojuego getVideojuego() {
+		return videojuego;
 	}
 
-	public void setVideojuegos(ArrayList<Videojuego> videojuegos) {
-		Videojuegos = videojuegos;
+	public void setVideojuego(Videojuego videojuego) {
+		this.videojuego = videojuego;
 	}
 
 	private String Creador;
