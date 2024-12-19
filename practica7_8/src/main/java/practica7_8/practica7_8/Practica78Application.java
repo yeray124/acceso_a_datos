@@ -12,7 +12,7 @@ public class Practica78Application {
 	public static void main(String[] args) {
 			ApplicationContext ctx = SpringApplication.run(Practica78Application.class, args);
 			
-			BibliotecaService biblioteca = ctx.getBean(BibliotecaService.class);
+			/**	BibliotecaService biblioteca = ctx.getBean(BibliotecaService.class);
 			VideojuegoService videojuego = ctx.getBean(VideojuegoService.class);
 			
 			// 2 Videojuegos insertados
@@ -108,7 +108,7 @@ public class Practica78Application {
 	            }
 	        } else {
 	            System.out.println("No se encontraron bibliotecas con duracion menor a " + duracionMaxima);
-	        }
+	        }**/
 	}
 
-}
+}  
