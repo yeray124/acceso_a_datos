@@ -21,6 +21,19 @@ public class BibliotecaJuegos {
 	
 	private  Videojuego videojuego;
 	
+	
+	private String Creador;
+	private int Duracion, Ventas;
+
+	public BibliotecaJuegos() {}
+	
+	public BibliotecaJuegos(String Creador, int Ventas, int Duracion, Videojuego videojuego) {
+		this.Creador = Creador;
+		this.Ventas = Ventas;
+		this.Duracion = Duracion;
+		this.videojuego = videojuego; 
+	}
+	
 	public Videojuego getVideojuego() {
 		return videojuego;
 	}
@@ -29,16 +42,6 @@ public class BibliotecaJuegos {
 		this.videojuego = videojuego;
 	}
 
-	private String Creador;
-	private int Duracion, Ventas;
-
-	public BibliotecaJuegos() {}
-	
-	public BibliotecaJuegos(String Creador, int Ventas, int Duracion) {
-		this.Creador = Creador;
-		this.Ventas = Ventas;
-		this.Duracion = Duracion;
-	}
 	
 	public Long getId() {
 		return id;

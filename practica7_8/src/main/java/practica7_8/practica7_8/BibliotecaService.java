@@ -20,7 +20,7 @@ public class BibliotecaService {
 
 	public BibliotecaService() {}
 	
-	public void InsertarBiblioteca(BibliotecaJuegos biblioteca) {
+	public Long InsertarBiblioteca(BibliotecaJuegos biblioteca) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		
@@ -36,6 +36,7 @@ public class BibliotecaService {
 		} finally {
 			session.close();
 		}		
+		return biblioteca.getId();
 	}
 	
 	public void BorrarBiblioteca(BibliotecaJuegos biblioteca) {
