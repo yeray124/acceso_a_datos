@@ -92,7 +92,7 @@ public class BibliotecaService {
 	    return actualizado;  
 	}
 	
-	public boolean ActualizarClaveExterna(Long id, Long idPelicula) {
+	public boolean ActualizarClaveExterna(Long id, Long id_videojuego) {
 	    Session session = sessionFactory.openSession();
 	    Transaction transaction = null;
 	    boolean actualizado = false;
@@ -102,7 +102,7 @@ public class BibliotecaService {
 	        if (biblioteca == null) {
 	            return false; 
 	        }
-	        Videojuego videojuego = session.get(Videojuego.class, idPelicula);
+	        Videojuego videojuego = session.get(Videojuego.class, id_videojuego);
 	        if (videojuego == null) {
 	            return false;
 	        }
