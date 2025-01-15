@@ -39,43 +39,18 @@ public class BibliotecaService {
 		return biblioteca.getId();
 	}
 	
-	public void BorrarBiblioteca(BibliotecaJuegos biblioteca) {
-		Session session = sessionFactory.openSession();
-		Transaction transaction = null;
-		
-		biblioteca = session.get(BibliotecaJuegos.class, biblioteca.getId());
-		
-		try {
-			transaction = session.beginTransaction();
-			session.remove(biblioteca);
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null){
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}		
-	}
-	
-	public void ActualizarBiblioteca(Long id, String Creador, int Ventas, int Duracion) {
+	public boolean BorrarBiblioteca(BibliotecaJuegos biblioteca) {
 	    Session session = sessionFactory.openSession();
 	    Transaction transaction = null;
+	    boolean eliminado = false;
 
 	    try {
-	        BibliotecaJuegos biblioteca = session.get(BibliotecaJuegos.class, id);
+	        biblioteca = session.get(BibliotecaJuegos.class, biblioteca.getId()); 
 	        if (biblioteca != null) {
-	            biblioteca.setCreador(Creador);
-	            biblioteca.setVentas(Ventas);
-	            biblioteca.setDuracion(Duracion);
 	            transaction = session.beginTransaction();
-	            session.merge(biblioteca);
+	            session.remove(biblioteca);
 	            transaction.commit();
-
-	            System.out.println("Se ha actualizado la biblioteca creada por: " + biblioteca.getCreador());
-	        } else {
-	            System.out.println("No se encontró la biblioteca con el ID proporcionado.");
+	            eliminado = true;
 	        }
 	    } catch (Exception e) {
 	        if (transaction != null) {
@@ -85,16 +60,77 @@ public class BibliotecaService {
 	    } finally {
 	        session.close();
 	    }
+	    return eliminado;
+	}
+
+	public boolean ActualizarBiblioteca(Long id,int duracion ) {
+	    Session session = sessionFactory.openSession();
+	    Transaction transaction = null;
+	    boolean actualizado = false;
+
+	    try {
+	        BibliotecaJuegos biblioteca = session.get(BibliotecaJuegos.class, id);
+	        if (biblioteca != null) {
+	            biblioteca.setDuracion(duracion);
+	            transaction = session.beginTransaction();
+	            session.merge(biblioteca);
+	            transaction.commit();
+	            actualizado = true; 
+	            System.out.println("Se ha actualizado la biblioteca creada por: " + biblioteca.getCreador());
+	        } else {
+	            System.out.println("No se encontro la biblioteca con el ID proporcionado.");
+	        }
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace();
+	    } finally {
+	        session.close();
+	    }
+
+	    return actualizado;  
 	}
 	
+	public boolean ActualizarClaveExterna(Long id, Long idPelicula) {
+	    Session session = sessionFactory.openSession();
+	    Transaction transaction = null;
+	    boolean actualizado = false;
+
+	    try {
+	        BibliotecaJuegos biblioteca = session.get(BibliotecaJuegos.class, id);
+	        if (biblioteca == null) {
+	            return false; 
+	        }
+	        Videojuego videojuego = session.get(Videojuego.class, idPelicula);
+	        if (videojuego == null) {
+	            return false;
+	        }
+	        biblioteca.setVideojuego(videojuego);
+	        transaction = session.beginTransaction();
+	        session.merge(biblioteca);
+	        transaction.commit();
+	        actualizado = true;
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace();
+	    } finally {
+	        session.close();
+	    }
+
+	    return actualizado;
+	}
+
 	public BibliotecaJuegos ObtenerBiblioteca(Long id) {
 		Session session = sessionFactory.openSession();		
 		BibliotecaJuegos biblioteca = null;
 		Transaction transaction = null;
 		
 		try {
+			biblioteca = session.get(BibliotecaJuegos.class, id);
 			transaction = session.beginTransaction();
-			session.get(BibliotecaJuegos.class, id);
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null){

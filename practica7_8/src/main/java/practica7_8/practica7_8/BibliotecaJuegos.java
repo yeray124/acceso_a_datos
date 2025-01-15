@@ -27,10 +27,10 @@ public class BibliotecaJuegos {
 
 	public BibliotecaJuegos() {}
 	
-	public BibliotecaJuegos(String Creador, int Ventas, int Duracion, Videojuego videojuego) {
-		this.Creador = Creador;
-		this.Ventas = Ventas;
-		this.Duracion = Duracion;
+	public BibliotecaJuegos(String creador, int ventas, int duracion, Videojuego videojuego) {
+		this.Creador = creador;
+		this.Ventas = ventas;
+		this.Duracion = duracion;
 		this.videojuego = videojuego; 
 	}
 	
@@ -63,9 +63,10 @@ public class BibliotecaJuegos {
 		return Duracion;
 	}
 
-	public void setDuracion(int duracion) {
-		Duracion = duracion;
+	public void setDuracion(int duracion2) {
+		Duracion = duracion2;
 	}
+
 
 	public int getVentas() {
 		return Ventas;
