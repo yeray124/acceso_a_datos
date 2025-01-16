@@ -13,6 +13,8 @@ public class PanelJuego extends JPanel {
 		
 		//Llamamos a la clase que gestiona las llamadas de eventos
 		addKeyListener(new KeyboardInputs());
+		setFocusable(true);
+        requestFocusInWindow();
 	}
 	
 	//Para dibujar necesitas un jpanel pero no es el que dibuja es el contenedor
