@@ -1,36 +1,16 @@
 package main;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
-public class VentanaJuego extends JFrame {
+public class VentanaJuego {
+    private JFrame jframe;
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaJuego frame = new VentanaJuego();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	public VentanaJuego() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-	}
-
+    public VentanaJuego(PanelJuego juegoPanel) {
+        jframe = new JFrame();
+        jframe.setSize(400, 400);
+        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jframe.add(juegoPanel);
+        jframe.setLocationRelativeTo(null);
+        jframe.setVisible(true);
+    }
 }
