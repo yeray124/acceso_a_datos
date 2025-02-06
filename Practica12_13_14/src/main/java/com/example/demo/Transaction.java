@@ -1,10 +1,12 @@
 package com.example.demo;
 
-import java.sql.Date;
+import java.util.Date;
 
+import org.springframework.data.annotation.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document public class Transaction {
+	@Id
 	private String Id;
 	private String Descripcion;
 	private double Quantity;
@@ -45,7 +47,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 		this.Quantity = quantity;
 	}
 
-	public boolean isIncome() {
+	public boolean getIncome() {
 		return Income;
 	}
 
