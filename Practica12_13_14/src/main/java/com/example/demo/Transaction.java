@@ -7,59 +7,57 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document public class Transaction {
 	@Id
-	private String Id;
-	private String Descripcion;
-	private double Quantity;
-	private boolean Income;
-	private Date Fecha;
+	private String id;
+	private String descripcion;
+	private double quantity;
+	private boolean income;
+	private Date fecha;
 	
-	
-	public Transaction(String Id, String Descripcion, double Quantity, boolean Income, Date Fecha) {
-		this.Id = Id;
-		this.Descripcion = Descripcion;
-		this.Quantity = Quantity;
-		this.Income = Income;
-		this.Fecha = Fecha;
-
+	public Transaction(String id, String descripcion, double quantity, boolean income, Date fecha) {
+	    this.id = id;
+	    this.descripcion = descripcion;
+	    this.quantity = quantity;
+	    this.income = income;
+	    this.fecha = fecha;
 	}
-	
+
 	public String getId() {
-		return Id;
+	    return id;
 	}
 
 	public void setId(String id) {
-		Id = id;
+	    this.id = id;
 	}
 
 	public String getDescripcion() {
-		return Descripcion;
+	    return descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+	    this.descripcion = descripcion;
 	}
 
 	public double getQuantity() {
-		return Quantity;
+	    return quantity;
 	}
 
 	public void setQuantity(double quantity) {
-		this.Quantity = quantity;
+	    this.quantity = quantity;
 	}
 
-	public boolean getIncome() {
-		return Income;
+	public boolean isIncome() {  
+	    return income;
 	}
 
 	public void setIncome(boolean income) {
-		Income = income;
+	    this.income = income;
 	}
 
 	public Date getFecha() {
-		return Fecha;
+	    return fecha;
 	}
 
 	public void setFecha(Date fecha) {
-		this.Fecha = fecha;
+	    this.fecha = fecha;
 	}
 }

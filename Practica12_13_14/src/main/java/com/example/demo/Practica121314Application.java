@@ -28,6 +28,7 @@ public class Practica121314Application implements CommandLineRunner{
     public void run(String... args) throws Exception {
         SimpleDateFormat darFormato = new SimpleDateFormat("dd-MM-yyyy");
 
+        
         Long totalEntitiesInDatabase = transactionRepository.count();
         transactionRepository.deleteAll();
         
@@ -37,7 +38,13 @@ public class Practica121314Application implements CommandLineRunner{
         transactionRepository.save(new Transaction("4", "Descripcion4", 14.0, true, darFormato.parse("18-01-1999")));
         transactionRepository.save(new Transaction("5", "Descripcion5", 4.0, true, darFormato.parse("14-04-2000")));
         
-        transactionRepository.findAll(Transaction.getIncome(true));
-        transactionRepository.findAll(Transaction.getIncome(false));
+        transactionRepository.findByIncomeFalse();
+        transactionRepository.findByIncomeTrue();
+        transactionRepository.findByFechaBetween( darFormato.parse("14-04-2024"), darFormato.parse("14-04-1999"));
+        
+        transactionRepository.findByDescripcionContaining("Venta");
+        transactionRepository.findByQuantityGreaterThan(204.0);
+        
+        
     }
 }
